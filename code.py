@@ -1,12 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
-filename = 'match.xlsx'
+filename1 = 'king_Rahul.xlsx'
+filename2 = 'land_bisaal.xlsx'
 
-sheets_dict = pd.read_excel(filename, sheet_name=None)
-
-Sheet1 = sheets_dict.get("Sheet1").to_dict()
-Sheet2 = sheets_dict.get("Sheet2")
+Sheet1 = pd.read_excel(filename1).to_dict()
+Sheet2 = pd.read_excel(filename2)
 
 Sheet1dict = {}
 length = len(Sheet1['tracking_id'])
@@ -51,7 +50,7 @@ for key, value in Sheet1dict.items():
                     inscan_time_1 = ele['time']
                 else:
                     last_null_time = ele['time']
-            else:
+            elif (inscan_time_3 == None):
                 inscan_time_3 = ele['time']
         status = None
         
